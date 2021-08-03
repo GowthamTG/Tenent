@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -9,11 +9,6 @@ import { VisitorRoutingModule } from './visitor-routing.module';
 
 @NgModule({
   declarations: [VisitorComponent, VisitorNavComponent],
-  imports: [
-    CommonModule,
-    BrowserModule,
-    HttpClientModule,
-    VisitorRoutingModule,
-  ],
+  imports: [CommonModule, FlexLayoutModule, VisitorRoutingModule],
 })
 export class VisitorModule {}
