@@ -4,7 +4,7 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./pages/visitor/visitor.module').then((m) => m.VisitorModule),
+      import('./layouts/visitor/visitor.module').then((m) => m.VisitorModule),
   },
 ];
 
