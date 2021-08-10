@@ -1,20 +1,49 @@
-<nav class="nav border" fxLayout="row">
-  <div fxLayout="column" class="border" fxLayoutAlign="start center">
-    <a class="nav--logo">LOGO </a>
+<div fxHide.gt-xs class="navigation">
+  <input type="checkbox" class="navigation__checkbox" id="navi-toggle" />
+
+  <label for="navi-toggle" class="navigation__button">
+    <span class="navigation__icon">&nbsp;</span>
+  </label>
+
+  <div class="navigation__background">&nbsp;</div>
+
+  <nav class="navigation__nav">
+    <ul class="navigation__list">
+      <li class="navigation__item">
+        <a [routerLink]="" class="navigation__link"><span>01</span>Home</a>
+      </li>
+      <li class="navigation__item">
+        <a [routerLink]="" class="navigation__link"><span>02</span>Products</a>
+      </li>
+      <li class="navigation__item">
+        <a [routerLink]="" class="navigation__link"><span>03</span>Services</a>
+      </li>
+      <!-- <li class="navigation__item">
+        <a [routerLink]="" class="navigation__link"><span>04</span>Stories</a>
+      </li>
+      <li class="navigation__item">
+        <a [routerLink]="" class="navigation__link"><span>05</span>Book now</a>
+      </li> -->
+    </ul>
+  </nav>
+</div>
+<nav fxHide fxShow.gt-xs class="nav border" fxLayout="row">
+  <div fxLayout="column" class="nav__logo border" fxLayoutAlign="start center">
+    <a>LOGO </a>
   </div>
-  <div fxLayout="column " class="border" fxLayoutAlign="end center">
-    <div class="nav--bar"><i class="fas fa-bars"></i></div>
-    <div class="nav--menu">
-      <a class="nav--menu--item">Home</a>
-      <a class="nav--menu--item">Products</a>
-      <a class="nav--menu--item">Services</a>
+  <div fxLayout="column" class="border" fxLayoutAlign="end center">
+    <div fxLayout="row" fxLayoutGap="5rem" class="nav__menu">
+      <a class="nav__menu-item">Home</a>
+      <a class="nav__menu-item">Products</a>
+      <a class="nav__menu-item">Services</a>
     </div>
   </div>
-  <div fxLayout="column " class="border nav-box" fxLayoutAlign="end center">
-    <div class="nav--bar"><i class="fas fa-bars"></i></div>
-    <div class="nav--menu">
-      <a class="nav--menu--item" id="button">Login</a>
-      <a class="nav--menu--item" id="button">Sign Up</a>
+  <div fxLayout="column " class="border nav__box" fxLayoutAlign="end center">
+    <div fxLayout="row" fxLayoutGap="4rem" class="nav__menu">
+      <button class="nav__btn nav__btn-login" [routerLink]="['/login']">
+        Login
+      </button>
+      <button class="nav__btn nav__btn-register">Sign Up</button>
     </div>
   </div>
 </nav>

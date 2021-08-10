@@ -13,14 +13,14 @@
     <div fxLayoutAlign="center" class="" fxFlex="55">
       <div fxFlex="90" class="" fxLayout="column">
         <form
-          [formGroup]="loginForm"
+          [formGroup]="registerForm"
           (ngSubmit)="onSubmit()"
           class="form"
           fxLayoutAlign="center"
         >
           <div fxFlex="85">
             <div class="form__heading">
-              <p class="heading-secondary">Log In</p>
+              <p class="heading-secondary">Register</p>
             </div>
 
             <div class="form__group" fxLayout="column">
@@ -35,16 +35,16 @@
             <div
               class="error__container"
               *ngIf="
-                loginForm.controls['email'].hasError('required') &&
-                loginForm.controls['email'].dirty
+                registerForm.controls['email'].hasError('required') &&
+                registerForm.controls['email'].dirty
               "
             >
               <p class="error__text">Email is Required!</p>
             </div>
             <div
               *ngIf="
-                loginForm.controls['email'].hasError('email') &&
-                loginForm.controls['email'].dirty
+                registerForm.controls['email'].hasError('email') &&
+                registerForm.controls['email'].dirty
               "
               class="error__container"
             >
@@ -61,12 +61,40 @@
             </div>
             <div
               *ngIf="
-                loginForm.controls['password'].hasError('required') &&
-                loginForm.controls['password'].dirty
+                registerForm.controls['password'].hasError('required') &&
+                registerForm.controls['password'].dirty
               "
               class="error__container"
             >
-              <p class="error__text">Pasword is Required!</p>
+              <p class="error__text">Password is Required!</p>
+            </div>
+            <div class="form__group" fxLayout="column">
+              <p class="form__label">Confirm Password</p>
+              <input
+                formControlName="confirmPassword"
+                class="form__input"
+                type="confirmPassword"
+                placeholder="Confirm Password*"
+              />
+            </div>
+            <div
+              *ngIf="
+                registerForm.controls['confirmPassword'].hasError('required') &&
+                registerForm.controls['confirmPassword'].dirty
+              "
+              class="error__container"
+            >
+              <p class="error__text">Confirm Password is Required!</p>
+            </div>
+            <div
+              *ngIf="
+                registerForm.controls['confirmPassword'].hasError(
+                  'matchFail'
+                ) && registerForm.controls['confirmPassword'].dirty
+              "
+              class="error__container"
+            >
+              <p class="error__text">Password Does Not Match!</p>
             </div>
             <div
               class="form__btn-group"
@@ -80,7 +108,7 @@
             <div fxLayoutAlign="center" class="form__group">
               <a class="text-btn">Forget Password? </a>
               <p class="seperator">|</p>
-              <p class="paragraph">Or you can login with</p>
+              <p class="paragraph">Or you can Sign Up with</p>
             </div>
 
             <div fxLayoutAlign="center" class="form__group"></div>

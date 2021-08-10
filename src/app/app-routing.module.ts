@@ -6,6 +6,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./layouts/visitor/visitor.module').then((m) => m.VisitorModule),
   },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./layouts/user/user.module').then((m) => m.UserModule),
+  },
 ];
 
 @NgModule({

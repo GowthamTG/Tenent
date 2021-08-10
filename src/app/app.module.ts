@@ -13,8 +13,8 @@ import { AuthInterceptor } from './helpers/interceptors/auth.interceptor';
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AppRoutingModule,
     FormsModule,
+    AppRoutingModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
