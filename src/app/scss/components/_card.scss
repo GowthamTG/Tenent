@@ -69,32 +69,32 @@
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
 
-    &--1 {
-      background-image: linear-gradient(
-          to right bottom,
-          $color-secondary-light,
-          $color-secondary-dark
-        ),
-        url(../img/nat-5.jpg);
-    }
+    // &--1 {
+    //   background-image: linear-gradient(
+    //       to right bottom,
+    //       $color-secondary-light,
+    //       $color-secondary-dark
+    //     ),
+    //     url(../img/nat-5.jpg);
+    // }
 
-    &--2 {
-      background-image: linear-gradient(
-          to right bottom,
-          $color-primary-light,
-          $color-primary-dark
-        ),
-        url(../img/nat-6.jpg);
-    }
+    // &--2 {
+    //   background-image: linear-gradient(
+    //       to right bottom,
+    //       $color-primary-light,
+    //       $color-primary-dark
+    //     ),
+    //     url(../img/nat-6.jpg);
+    // }
 
-    &--3 {
-      background-image: linear-gradient(
-          to right bottom,
-          $color-tertiary-light,
-          $color-tertiary-dark
-        ),
-        url(../img/nat-7.jpg);
-    }
+    // &--3 {
+    //   background-image: linear-gradient(
+    //       to right bottom,
+    //       $color-tertiary-light,
+    //       $color-tertiary-dark
+    //     ),
+    //     url(../img/nat-7.jpg);
+    // }
   }
 
   &__heading {
@@ -227,6 +227,91 @@
 
     &__price-value {
       font-size: 4rem;
+    }
+  }
+}
+
+.dash--card {
+  margin-bottom: 1.2rem;
+  cursor: default;
+  &__image {
+    height: 150px;
+    width: 220px;
+    border-radius: 0.5rem;
+    object-fit: cover;
+  }
+  &__heading {
+    font-size: $default-font-size;
+    color: $color-primary-light;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+  }
+  &__sub-heading {
+    font-size: 1.4rem;
+    font-family: "Raleway", sans-serif;
+    color: $color-primary;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    margin-bottom: 1rem;
+  }
+  &__data-heading {
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.2rem;
+  }
+  &__data-sub-heading {
+    font-size: 1rem;
+    font-weight: 500;
+    color: $color-grey-dark-2;
+    letter-spacing: 0.1rem;
+  }
+  &__content-box {
+    margin-left: 1rem;
+  }
+  &__data-box {
+    margin-bottom: 1rem;
+  }
+  &__paragraph {
+    margin-bottom: 0.8rem;
+  }
+  &__tag {
+    font-family: "Raleway", sans-serif;
+    font-size: 1.2rem;
+    border-radius: 0.2rem;
+    padding: 0.2rem 0.5rem;
+    letter-spacing: 0.1rem;
+    background-color: $color-grey-dark-3;
+    color: rgba($color-primary-light, 1);
+  }
+
+  &__bottom {
+    margin-top: 0.5rem;
+  }
+  &__bottom-heading {
+    font-size: 1rem;
+    color: $color-grey-light-2;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+  }
+  &__bottom-sub-heading {
+    font-size: 1.2rem;
+    font-family: "Raleway", sans-serif;
+    color: $color-primary-light;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+  }
+  &__contact-owner {
+    padding: 0.2rem 1rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    font-family: "Raleway", sans-serif;
+    color: $color-grey-dark-3;
+    background-color: $color-primary;
+    transition: all 0.3s;
+    &:hover {
+      cursor: pointer;
+      background-color: $color-primary-light;
     }
   }
 }

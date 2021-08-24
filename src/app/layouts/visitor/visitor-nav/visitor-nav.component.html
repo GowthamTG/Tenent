@@ -27,7 +27,7 @@
     </ul>
   </nav>
 </div>
-<nav fxHide fxShow.gt-xs class="nav border" fxLayout="row">
+<nav fxHide fxShow.gt-xs class="nav__visitor border" fxLayout="row">
   <div fxLayout="column" class="nav__logo border" fxLayoutAlign="start center">
     <a>LOGO </a>
   </div>
@@ -43,7 +43,9 @@
       <button class="nav__btn nav__btn-login" [routerLink]="['/login']">
         Login
       </button>
-      <button class="nav__btn nav__btn-register">Sign Up</button>
+      <button class="nav__btn nav__btn-register" [routerLink]="['/register']">
+        Sign Up
+      </button>
     </div>
   </div>
 </nav>

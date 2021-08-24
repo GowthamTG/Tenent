@@ -5,13 +5,13 @@
     fxLayout="column "
     fxLayout.gt-xs="row"
   >
-    <div fxLayoutAlign="center center" fxHide fxShow.gt-xs class="" fxFlex="45">
+    <div fxLayoutAlign="center center" fxHide fxShow.gt-xs fxFlex="45">
       <div class="icon__container">
         <img class="icon__big" src="assets/icons/login-logo.svg" />
       </div>
     </div>
-    <div fxLayoutAlign="center" class="" fxFlex="55">
-      <div fxFlex="90" class="" fxLayout="column">
+    <div fxLayoutAlign="center" fxFlex="55">
+      <div fxFlex="90" fxLayout="column">
         <form
           [formGroup]="loginForm"
           (ngSubmit)="onSubmit()"
@@ -74,7 +74,12 @@
               fxLayoutGap="2rem"
               fxLayoutAlign="center"
             >
-              <button class="btn btn-text form__submit">Submit</button>
+              <button
+                [routerLink]="['/dash']"
+                class="btn btn-text form__submit"
+              >
+                Submit
+              </button>
             </div>
 
             <div fxLayoutAlign="center" class="form__group">

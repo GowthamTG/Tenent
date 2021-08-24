@@ -1,1 +1,67 @@
-<p>user-nav works!</p>
+<nav fxHide fxShow.gt-xs class="mat-elevation-z20 nav" fxLayout="row">
+  <div fxLayout="column" class="nav__logo" fxLayoutAlign="start center">
+    <a>LOGO </a>
+  </div>
+  <div fxLayout="column" class="" fxLayoutAlign="end center">
+    <div fxLayout="row" fxLayoutGap="5rem" class="nav__menu">
+      <a class="nav__menu-item">Home</a>
+      <!-- <a class="nav__menu-item">Products</a> -->
+      <a class="nav__menu-item">Services</a>
+      <input
+        placeholder="Search for Property..."
+        class="nav__menu-input"
+        type="text"
+      />
+    </div>
+  </div>
+  <div fxLayout="column " class="nav__box" fxLayoutAlign="end center">
+    <div
+      fxLayout="row"
+      fxLayoutGap="3rem"
+      class="nav__menu"
+      fxLayoutAlign="center center"
+    >
+      <button fxLayoutAlign="center center" class="nav__text-btn">
+        Add Property <mat-icon>add</mat-icon>
+      </button>
+      <div class="dropdown">
+        <button
+          class="dropbtn"
+          fxLayoutGap=".2rem"
+          fxLayoutAlign="center center"
+        >
+          <p class="dropdown--text">My Account</p>
+          <mat-icon>expand_more</mat-icon>
+        </button>
+        <div class="dropdown-content">
+          <a
+            fxLayoutAlign="start center"
+            fxLayoutGap="0.6rem"
+            fxLayout="row"
+            routerLink=""
+          >
+            <mat-icon>person</mat-icon>
+            <p class="">My Account</p>
+          </a>
+          <a
+            fxLayoutGap="0.6rem"
+            fxLayoutAlign="start center"
+            fxLayout="row"
+            routerLink=""
+            ><mat-icon>home</mat-icon>
+            <p class="">My Home</p>
+          </a>
+          <a
+            fxLayoutGap="0.6rem"
+            fxLayoutAlign="start center"
+            fxLayout="row"
+            routerLink=""
+          >
+            <mat-icon>settings</mat-icon>
+            <p class="">Settings</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

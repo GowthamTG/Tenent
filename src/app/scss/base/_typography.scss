@@ -86,8 +86,10 @@ body {
 }
 
 .paragraph {
-  font-size: $default-font-size;
-  color: $color-grey-dark-2;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
+  color: $color-grey-light-2;
   &:not(:last-child) {
     margin-bottom: 3rem;
   }

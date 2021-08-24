@@ -1,0 +1,66 @@
+.filter {
+  background-color: $bg-primary;
+  padding: 1.2rem 1.8rem;
+  border: 2px solid $color-primary-dark;
+  &__location {
+    min-width: 100%;
+  }
+  &__input {
+    background-color: $bg-primary-light;
+    border: none;
+    color: $color-primary;
+
+    max-width: 9rem;
+    outline: none;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s;
+    border-bottom: 2px solid transparent;
+
+    &:active,
+    &:focus {
+      outline: none;
+      border-bottom: 2px solid $color-primary-light;
+    }
+    &::placeholder {
+      color: $color-grey-dark-2;
+    }
+  }
+
+  &__drop-down {
+    display: inline !important;
+    &--item {
+      margin-right: 0.5rem;
+    }
+  }
+
+  &__right {
+    margin-left: 0.5rem;
+  }
+
+  &__text {
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-family: "Raleway", sans-serif;
+    letter-spacing: 0.1rem;
+    color: $color-grey-dark-2;
+  }
+
+  &__label {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: $color-primary;
+  }
+  &__heading {
+    font-family: "Raleway", sans-serif;
+    color: $color-primary-light;
+    font-weight: 500;
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+    margin-bottom: 1.5rem;
+  }
+  // &__splitter {
+  //   background-color: $bg-primary;
+  //   border-left: 2px solid $color-primary-dark;
+  // }
+}

@@ -1,1 +1,333 @@
-<p>dash works!</p>
+<div fxLayoutAlign="center center" class="dash">
+  <div fxLayout="row" fxFlex="92" class="dash">
+    <div
+      fxLayoutGap="1rem"
+      fxLayout="column"
+      class="filter elevation-10"
+      fxFlex="22"
+    >
+      <form
+        (ngSubmit)="onSubmit()"
+        [formGroup]="filterForm"
+        fxLayout="column"
+        fxLayoutGap=".8rem"
+      >
+        <div class="filter__heading">Applied Filter's</div>
+        <div class="filter__group">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title class="filter__label"> Budget </mat-panel-title>
+              <!-- <mat-panel-description>
+            Currently I am {{ panelOpenState ? "open" : "closed" }}
+          </mat-panel-description> -->
+            </mat-expansion-panel-header>
+            <div class="filter__section">
+              <mat-slider
+                thumbLabel
+                [displayWith]="formatLabel"
+                tickInterval="1000000"
+                step="1000000"
+                min="0"
+                max="100000000"
+                aria-label="units"
+                formControlName="range"
+              ></mat-slider>
+
+              <div fxLayoutGap=".8rem" fxLayoutAlign="center center">
+                <input
+                  placeholder="Start Range"
+                  class="filter__input"
+                  type="text"
+                />
+                <span class="filter__text">To</span>
+                <input
+                  placeholder="End Range"
+                  class="filter__input"
+                  type="text"
+                />
+              </div>
+            </div>
+          </mat-expansion-panel>
+        </div>
+        <div class="filter__group">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title class="filter__label">
+                Select City
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="filter__section">
+              <input
+                type="text"
+                class="filter__input filter__location"
+                placeholder="Search for a City"
+                [matAutocomplete]="auto"
+              />
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option
+                  *ngFor="let street of filteredStreets | async"
+                  [value]="street"
+                >
+                  {{ street }}
+                </mat-option>
+              </mat-autocomplete>
+            </div>
+          </mat-expansion-panel>
+        </div>
+
+        <!-- <div fxLayoutGap="1rem" fxLayout="column" class="filter__group">
+          <div class="filter__label">Select City</div>
+          <div class="filter__section">
+            <input
+              type="text"
+              class="filter__input filter__location"
+              placeholder="Search for a City"
+              [matAutocomplete]="auto"
+            />
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option
+                *ngFor="let street of filteredStreets | async"
+                [value]="street"
+              >
+                {{ street }}
+              </mat-option>
+            </mat-autocomplete>
+          </div>
+        </div>  -->
+        <div class="filter__group">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title class="filter__label">
+                No of Bedrooms
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="filter__section">
+              <div
+                *ngFor="let room of rooms"
+                class="filter__drop-down"
+                fxLayout="row"
+                fxLayoutAlign="center center"
+                fxFlex="70"
+              >
+                <mat-checkbox [value]="room"> {{ room }}</mat-checkbox>
+              </div>
+            </div>
+          </mat-expansion-panel>
+        </div>
+        <div class="filter__group">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title class="filter__label">
+                Available From
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="filter__section">
+              <div
+                fxLayout="column"
+                class="filter__right"
+                fxLayoutAlign="center start"
+                *ngFor="let available of availableFrom"
+              >
+                <mat-checkbox [value]="available.value">
+                  {{ available.content }}</mat-checkbox
+                >
+              </div>
+            </div>
+          </mat-expansion-panel>
+        </div>
+        <!-- <div class="filter__group">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title class="filter__label"> Posted By </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="filter__section"></div>
+          </mat-expansion-panel>
+        </div> -->
+        <div class="filter__group">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title class="filter__label">
+                Furnished Status
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="filter__section">
+              <div
+                fxLayout="column"
+                class="filter__right"
+                fxLayoutAlign="center start"
+                *ngFor="let furnished of furnishedStatus"
+              >
+                <mat-checkbox [value]="furnished.value">
+                  {{ furnished.content }}</mat-checkbox
+                >
+              </div>
+            </div>
+          </mat-expansion-panel>
+        </div>
+        <!-- <div class="filter__group">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title class="filter__label">
+                Available For
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="filter__section"></div>
+          </mat-expansion-panel>
+        </div> -->
+        <div class="filter__group">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title class="filter__label">
+                Age of Property
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="filter__section">
+              <div
+                fxLayout="column"
+                class="filter__right filter__drop-down"
+                *ngFor="let age of ageOfProperty"
+              >
+                <mat-checkbox
+                  class="filter__drop-down--item"
+                  [value]="age.value"
+                >
+                  {{ age.content }}</mat-checkbox
+                >
+              </div>
+            </div>
+          </mat-expansion-panel>
+        </div>
+        <div class="filter__group">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title class="filter__label">
+                Area of Property
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="filter__section">
+              <div fxLayoutGap=".8rem" fxLayoutAlign="center center">
+                <input
+                  placeholder="Min Area"
+                  class="filter__input"
+                  type="text"
+                />
+                <span class="filter__text">To</span>
+                <input
+                  placeholder="Max Area"
+                  class="filter__input"
+                  type="text"
+                />
+              </div>
+            </div>
+          </mat-expansion-panel>
+        </div>
+        <div class="filter__group">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title class="filter__label">
+                Amendities
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="filter__section">
+              <div
+                fxLayout="column"
+                class="filter__right filter__drop-down"
+                *ngFor="let ammendities of ammenditiesArr"
+              >
+                <mat-checkbox
+                  class="filter__drop-down--item"
+                  [value]="ammendities.value"
+                >
+                  {{ ammendities.content }}</mat-checkbox
+                >
+              </div>
+            </div>
+          </mat-expansion-panel>
+        </div>
+      </form>
+    </div>
+    <div fxLayout="column" class="filter__splitter" fxFlex="1"></div>
+    <div fxLayout="column" class="" fxFill fxFlex>
+      <div>
+        <div fxLayoutAlign="center" *ngFor="let house of houses">
+          <mat-card fxFlex="95" class="dash--card mat-elevation-z10">
+            <div fxLayout="row" class="">
+              <div fxLayout="column" fxFlex="30" class="">
+                <div class="dash--card__image-box">
+                  <img
+                    class="dash--card__image"
+                    alt="Test Image"
+                    src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                  />
+                </div>
+              </div>
+              <div
+                fxLayout="column"
+                fxFlex="70"
+                class="dash--card__content-box"
+              >
+                <div class="dash--card__heading">
+                  2 BHK Residential Apartment in Alagapuram
+                </div>
+                <div class="dash--card__sub-heading">
+                  Maharaja Garden Apartment
+                </div>
+                <div
+                  class="dash--card__data-box"
+                  fxLayout="row"
+                  fxLayoutGap="2.5rem"
+                >
+                  <div fxLayout="column">
+                    <div class="dash--card__data-heading">₹ 65 L</div>
+                    <div class="dash--card__data-sub-heading">
+                      ₹ 5416 / sq.ft
+                    </div>
+                  </div>
+                  <div fxLayout="column">
+                    <div class="dash--card__data-heading">1,200 sq.ft.</div>
+                    <div class="dash--card__data-sub-heading">
+                      (111 sq.m.) Super built-up Area
+                    </div>
+                  </div>
+                  <div fxLayout="column">
+                    <div class="dash--card__data-heading">2 BHK</div>
+                    <div class="dash--card__data-sub-heading">2 Baths</div>
+                  </div>
+                </div>
+                <div fxLayout="row">
+                  <p class="paragraph dash--card__paragraph">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quaerat sint architecto...
+                  </p>
+                </div>
+
+                <div
+                  fxLayout="row"
+                  fxLayoutGap="1.5rem"
+                  class="dash--card__tag-box"
+                >
+                  <div class="elevation-20 dash--card__tag">Ready To Move</div>
+                  <div class="elevation-20 dash--card__tag">Resale</div>
+                </div>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+              <div fxLayout="column" class="dash--card__bottom">
+                <div class="dash--card__bottom-heading">
+                  Posted on 05th Aug, 2021 by owner
+                </div>
+                <div class="dash--card__bottom-sub-heading">Raja</div>
+              </div>
+              <div
+                fxLayout="column"
+                class="dash--card__contact-owner mat-elevation-z5"
+              >
+                Contact Owner
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

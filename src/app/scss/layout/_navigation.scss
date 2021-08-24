@@ -176,12 +176,19 @@
 }
 
 .nav {
-  background-color: black;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 1rem;
+  background-color: $bg-primary-light;
+  padding: 1.2rem;
+
+  &__visitor {
+    background-color: $bg-primary;
+    padding: 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+  }
+
   &__logo {
     margin: 0 5rem;
   }
@@ -192,6 +199,21 @@
   &__menu {
     margin-left: 1rem;
   }
+  &__menu-input {
+    background-color: $bg-primary;
+    border: none;
+    color: $color-primary-light;
+    min-width: 30rem;
+    outline: none;
+    font-size: 1.2rem;
+    padding: 0.3rem 0.8rem;
+    transition: all 0.3s;
+    border-bottom: 2px solid transparent;
+    border-radius: 2rem;
+    // &:hover {
+    //  border-bottom: 2px solid $color-primary-light;
+    // }
+  }
 
   &__menu-item {
     font-size: $default-font-size;
@@ -199,6 +221,9 @@
     color: $color-primary;
     letter-spacing: 0.2rem;
     margin: 0 1rem;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__btn {
@@ -231,6 +256,21 @@
         background-color: $color-primary-light;
         border: none;
       }
+    }
+  }
+  &__icon-btn {
+    font-size: 1.2rem;
+    color: $color-primary;
+    background-color: transparent;
+    border: none;
+  }
+
+  &__text-btn {
+    background-color: transparent;
+    border: none;
+    color: $color-primary;
+    &:hover {
+      cursor: pointer;
     }
   }
 }
