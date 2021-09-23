@@ -1,14 +1,15 @@
 .filter {
   background-color: $bg-primary;
   padding: 1.2rem 1.8rem;
-  border: 2px solid $color-primary-dark;
+  border: 2px solid $color-primary-light;
+  border-radius: $default-font-size;
   &__location {
     min-width: 100%;
   }
   &__input {
     background-color: $bg-primary-light;
     border: none;
-    color: $color-primary;
+    color: $color-grey-dark;
 
     max-width: 9rem;
     outline: none;
@@ -37,6 +38,9 @@
   &__right {
     margin-left: 0.5rem;
   }
+  &__section {
+    margin-bottom: 1.2rem;
+  }
 
   &__text {
     font-size: 1.2rem;
@@ -49,11 +53,11 @@
   &__label {
     font-size: 1.2rem;
     font-weight: 500;
-    color: $color-primary;
+    color: $color-grey-dark;
   }
   &__heading {
     font-family: "Raleway", sans-serif;
-    color: $color-primary-light;
+    color: $color-grey-dark;
     font-weight: 500;
     font-size: 1.5rem;
     letter-spacing: 0.1rem;

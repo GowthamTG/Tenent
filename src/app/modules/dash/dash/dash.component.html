@@ -14,7 +14,7 @@
       >
         <div class="filter__heading">Applied Filter's</div>
         <div class="filter__group">
-          <mat-expansion-panel>
+          <mat-expansion-panel [expanded]="isOpen[0]">
             <mat-expansion-panel-header>
               <mat-panel-title class="filter__label"> Budget </mat-panel-title>
               <!-- <mat-panel-description>
@@ -50,7 +50,7 @@
           </mat-expansion-panel>
         </div>
         <div class="filter__group">
-          <mat-expansion-panel>
+          <mat-expansion-panel [expanded]="isOpen[1]">
             <mat-expansion-panel-header>
               <mat-panel-title class="filter__label">
                 Select City
@@ -95,7 +95,7 @@
           </div>
         </div>  -->
         <div class="filter__group">
-          <mat-expansion-panel>
+          <mat-expansion-panel [expanded]="isOpen[2]">
             <mat-expansion-panel-header>
               <mat-panel-title class="filter__label">
                 No of Bedrooms
@@ -115,7 +115,7 @@
           </mat-expansion-panel>
         </div>
         <div class="filter__group">
-          <mat-expansion-panel>
+          <mat-expansion-panel [expanded]="isOpen[3]">
             <mat-expansion-panel-header>
               <mat-panel-title class="filter__label">
                 Available From
@@ -144,7 +144,7 @@
           </mat-expansion-panel>
         </div> -->
         <div class="filter__group">
-          <mat-expansion-panel>
+          <mat-expansion-panel [expanded]="isOpen[4]">
             <mat-expansion-panel-header>
               <mat-panel-title class="filter__label">
                 Furnished Status
@@ -175,7 +175,7 @@
           </mat-expansion-panel>
         </div> -->
         <div class="filter__group">
-          <mat-expansion-panel>
+          <mat-expansion-panel [expanded]="isOpen[5]">
             <mat-expansion-panel-header>
               <mat-panel-title class="filter__label">
                 Age of Property
@@ -198,7 +198,7 @@
           </mat-expansion-panel>
         </div>
         <div class="filter__group">
-          <mat-expansion-panel>
+          <mat-expansion-panel [expanded]="isOpen[6]">
             <mat-expansion-panel-header>
               <mat-panel-title class="filter__label">
                 Area of Property
@@ -222,7 +222,7 @@
           </mat-expansion-panel>
         </div>
         <div class="filter__group">
-          <mat-expansion-panel>
+          <mat-expansion-panel [expanded]="isOpen[7]">
             <mat-expansion-panel-header>
               <mat-panel-title class="filter__label">
                 Amendities
@@ -257,7 +257,7 @@
                   <img
                     class="dash--card__image"
                     alt="Test Image"
-                    src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                    src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aG91c2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80"
                   />
                 </div>
               </div>
@@ -306,8 +306,8 @@
                   fxLayoutGap="1.5rem"
                   class="dash--card__tag-box"
                 >
-                  <div class="elevation-20 dash--card__tag">Ready To Move</div>
-                  <div class="elevation-20 dash--card__tag">Resale</div>
+                  <div class="elevation-5 dash--card__tag">Ready To Move</div>
+                  <div class="elevation-5 dash--card__tag">Resale</div>
                 </div>
               </div>
             </div>
@@ -321,7 +321,10 @@
               <div
                 fxLayout="column"
                 class="dash--card__contact-owner mat-elevation-z5"
+                [routerLink]="['/home']"
+                (click)="openContactOwner()"
               >
+                <!-- [queryParams]="{ id: 'id' }" -->
                 Contact Owner
               </div>
             </div>

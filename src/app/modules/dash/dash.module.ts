@@ -10,6 +10,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
+
 import { DashComponent } from './dash/dash.component';
 
 @NgModule({
@@ -24,6 +26,7 @@ import { DashComponent } from './dash/dash.component';
     MatExpansionModule,
     MatCheckboxModule,
     MatCardModule,
+    MatDialogModule,
     DashRoutingModule,
   ],
 })

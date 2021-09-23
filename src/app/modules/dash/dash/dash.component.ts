@@ -1,5 +1,6 @@
+import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map, retry } from 'rxjs/operators';
 
@@ -23,7 +24,7 @@ export class DashComponent implements OnInit {
     { value: 'Full', content: 'Fully Furnished' },
   ];
 
-  houses = [1, 3];
+  houses = [1, 3, 4];
 
   ageOfProperty: { value: string; content: string }[] = [
     { value: '0', content: 'New' },
@@ -43,7 +44,9 @@ export class DashComponent implements OnInit {
     location: [],
   });
 
-  constructor(private fb: FormBuilder) {}
+  isOpen: boolean[] = [true, true, true, true, false, false, false, false];
+
+  constructor(private fb: FormBuilder, private dialog: MatDialog) {}
 
   ngOnInit() {
     this.filteredStreets = this.filterForm.controls[
@@ -80,4 +83,6 @@ export class DashComponent implements OnInit {
   }
 
   onSubmit() {}
+
+  openContactOwner() {}
 }
